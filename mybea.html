@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap">
+    <style>
+        body {
+            font-family: 'Shadows Into Light', cursive;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fcefee; /* Light pastel pink background */
+            color: #7f7f7f; /* Grayish pastel purple text color */
+        }
+        .hidden {
+            display: none;
+        }
+        h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff85a2; /* Pastel pink heading color */
+        }
+        p {
+            font-family: 'Fredoka One', cursive;
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff85a2; /* Pastel pink button color */
+            color: #fff;
+            border: none;
+            border-radius: 20px; /* Rounded corners */
+            cursor: pointer;
+            margin: 10px;
+        }
+        /* Smaller font for the third line */
+        #firstInterface > p {
+            font-size: 14px;
+        }
+        /* Smaller font for the second line in the second interface */
+        #secondInterface > p:nth-child(2) {
+            font-size: 14px;
+        }
+        /* Big sad emoji for the sad emoji interface */
+        #sadEmoji {
+            font-size: 80px;
+        }
+        /* Smaller font for the fine button interface */
+        #fineButtonInterface > p {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="firstInterface">
+        <h1>HELLO MY BEAUTIFUL WONDERFUL GIRLFRIEND!!</h1>
+        <button onclick="showSecondInterface()">what?</button>
+        <button onclick="showSadEmojiInterface()">IDC 😠</button>
+    </div>
+
+    <div id="secondInterface" class="hidden">
+        <h1>Will you be my Valentine?</h1>
+	<p>I would love to spend a day with you, even if it's not exactly on Valentine's Day. I LOVE YOU SO MUCH <3</p>
+        <p style="font-size: 14px;">PLEASE?</p>
+        <p>PLEASE.</p>
+        <button onclick="showThirdInterface('YES')">SURE MY BABY!!!</button>
+        <button onclick="showThirdInterface('NO')">NO 😠</button>
+    </div>
+
+    <div id="sadEmojiInterface" class="hidden">
+        <h1 id="sadEmoji">&#128557;</h1>
+        <p> :((( </p>
+        <button onclick="showFineButtonInterface()">fine</button>
+    </div>
+
+    <div id="fineButtonInterface" class="hidden">
+        <h1>Will you be my Valentine?</h1>
+        <p style="font-size: 14px;">PLEASE?</p>
+        <p>PLEASE.</p>
+        <button onclick="showThirdInterface('YES')">SURE MY BABY</button>
+        <button onclick="showThirdInterface('NO')">NO 😠</button>
+    </div>
+
+    <div id="thirdInterface" class="hidden">
+        <h1 id="responseHeading"></h1>
+        <p id="responseMessage"></p>
+        <img src="C:\Users\Kim\Desktop\hello\heart.jpg" width="300" 
+    </div>
+
+    <script>
+        function showSecondInterface() {
+            document.getElementById('firstInterface').style.display = 'none';
+            document.getElementById('secondInterface').style.display = 'block';
+            document.getElementById('sadEmojiInterface').style.display = 'none';
+            document.getElementById('fineButtonInterface').style.display = 'none';
+        }
+
+        function showSadEmojiInterface() {
+            document.getElementById('firstInterface').style.display = 'none';
+            document.getElementById('secondInterface').style.display = 'none';
+            document.getElementById('sadEmojiInterface').style.display = 'block';
+            document.getElementById('fineButtonInterface').style.display = 'none';
+        }
+
+        function showThirdInterface(response) {
+            document.getElementById('secondInterface').style.display = 'none';
+            document.getElementById('fineButtonInterface').style.display = 'none';
+            document.getElementById('thirdInterface').style.display = 'block';
+
+            if (response === 'YES') {
+                document.getElementById('responseHeading').textContent = 'I LOVE YOU';
+                document.getElementById('responseMessage').textContent = 'Schedule our date pls hehe';
+            } else if (response === 'NO') {
+                document.getElementById('responseHeading').textContent = 'WDYM U DONT LOVE ME ANYMORE?';
+                document.getElementById('responseMessage').textContent = 'kidding, ure still amazing :(!';
+            }
+        }
+
+        function showFineButtonInterface() {
+            document.getElementById('firstInterface').style.display = 'none';
+            document.getElementById('secondInterface').style.display = 'none';
+            document.getElementById('sadEmojiInterface').style.display = 'none';
+            document.getElementById('fineButtonInterface').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
